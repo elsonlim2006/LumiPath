@@ -1,0 +1,77 @@
+[
+  {
+    "role_code": "19-4099.01",
+    "role_title": "Quality Control Analyst",
+    "salary_range": "RM 3,500 - RM 5,000",
+    "primary_sdg": "SDG 8",
+    "secondary_sdg": "SDG 13",
+    "malaysia_col_aligned": true,
+    "required_skills": [
+      "Spectrometry Automation",
+      "Green Chemistry Compliance",
+      "SOP Inspection",
+      "Chemical Hazard Evaluation",
+      "Lab Data Digital Logging"
+    ]
+  },
+  {
+    "role_code": "17-3026.00",
+    "role_title": "Battery Cell Manufacturing Technician",
+    "salary_range": "RM 4,000 - RM 5,500",
+    "primary_sdg": "SDG 8",
+    "secondary_sdg": "SDG 9",
+    "malaysia_col_aligned": true,
+    "required_skills": [
+      "Automated Assembly Monitoring",
+      "Electrochemical Testing",
+      "SOP Inspection",
+      "Cleanroom Protocol",
+      "Quality Defect Root-Cause Analysis"
+    ]
+  },
+  {
+    "role_code": "17-3029.09",
+    "role_title": "Green Hydrogen Process Operator",
+    "salary_range": "RM 4,200 - RM 5,800",
+    "primary_sdg": "SDG 8",
+    "secondary_sdg": "SDG 13",
+    "malaysia_col_aligned": true,
+    "required_skills": [
+      "Electrolyzer Operation Monitoring",
+      "Gas Chromatography Inspection",
+      "High-Pressure Safety Compliance",
+      "Automated SCADA Logging",
+      "Emergency Shutdown Protocol"
+    ]
+  },
+  {
+    "role_code": "19-4042.00",
+    "role_title": "Environmental Compliance Inspector",
+    "salary_range": "RM 3,600 - RM 4,800",
+    "primary_sdg": "SDG 8",
+    "secondary_sdg": "SDG 13",
+    "malaysia_col_aligned": true,
+    "required_skills": [
+      "Industrial Effluent Testing",
+      "Air Quality Sensor Calibration",
+      "Environmental Regulatory Auditing",
+      "ISO 14001 Standards",
+      "Digital Reporting"
+    ]
+  },
+  {
+    "role_code": "51-9061.00",
+    "role_title": "Automated Quality Control Specialist",
+    "salary_range": "RM 3,500 - RM 4,600",
+    "primary_sdg": "SDG 8",
+    "secondary_sdg": "SDG 9",
+    "malaysia_col_aligned": true,
+    "required_skills": [
+      "Computer Vision Defect Inspection",
+      "Statistical Process Control (SPC)",
+      "SOP Inspection",
+      "Data Logging & Tagging",
+      "Sensor Calibration"
+    ]
+  }
+]

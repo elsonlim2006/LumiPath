@@ -1,0 +1,58 @@
+[
+  {
+    "skill_keyword": "Spectrometry Automation",
+    "course_name": "Modern Analytical Chemistry: Automated Spectroscopy",
+    "provider": "edX / HarvardX",
+    "cost_type": "Free Audit",
+    "milestone_credential": "Verified Course Certificate"
+  },
+  {
+    "skill_keyword": "Green Chemistry Compliance",
+    "course_name": "Introduction to Environmental Green Chemistry",
+    "provider": "Coursera / University of Michigan",
+    "cost_type": "Free Audit",
+    "milestone_credential": "Specialization Certificate"
+  },
+  {
+    "skill_keyword": "Chemical Hazard Evaluation",
+    "course_name": "Chemical Health Risk Assessment (CHRA)",
+    "provider": "NIOSH Malaysia",
+    "cost_type": "HRD Corp Claimable",
+    "milestone_credential": "CHRA Competency Certificate"
+  },
+  {
+    "skill_keyword": "Lab Data Digital Logging",
+    "course_name": "Python for Everybody: Lab Data Automation",
+    "provider": "Coursera / University of Michigan",
+    "cost_type": "Free Audit",
+    "milestone_credential": "Micro-credential in Data Analysis"
+  },
+  {
+    "skill_keyword": "Electrochemical Testing",
+    "course_name": "Battery Technologies & Energy Storage Systems",
+    "provider": "edX / ChalmersX",
+    "cost_type": "Free Audit",
+    "milestone_credential": "Professional Certificate"
+  },
+  {
+    "skill_keyword": "Automated SCADA Logging",
+    "course_name": "Industrial SCADA & PLC Automation Programming",
+    "provider": "Federation of Malaysian Manufacturers (FMM)",
+    "cost_type": "HRD Corp Claimable",
+    "milestone_credential": "Industry Automation Practitioner Badge"
+  },
+  {
+    "skill_keyword": "Environmental Regulatory Auditing",
+    "course_name": "ISO 14001:2015 Environmental Management Lead Auditor",
+    "provider": "BSI Group Malaysia",
+    "cost_type": "HRD Corp Claimable",
+    "milestone_credential": "ISO Internal Auditor Certificate"
+  },
+  {
+    "skill_keyword": "Computer Vision Defect Inspection",
+    "course_name": "AI & Computer Vision for Manufacturing Quality Inspection",
+    "provider": "DeepLearning.AI / Coursera",
+    "cost_type": "Free Audit",
+    "milestone_credential": "Applied AI Badge"
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "worker_id": "WORKER-01",
+    "worker_name": "Wong Swee Tiam",
+    "current_role": "Chemical Technician",
+    "experience_years": 2.0,
+    "education_background": "Bachelor of Chemical Technology",
+    "target_domains": [
+      "Chemical Quality Control",
+      "Laboratory Analytical Operations"
+    ],
+    "current_skills": [
+      "Operations Monitoring",
+      "Complex Problem Solving",
+      "Judgment and Decision Making",
+      "Quality Control Analysis",
+      "System Evaluation"
+    ]
+  },
+  {
+    "worker_id": "WORKER-02",
+    "worker_name": "Tan Ching Yen",
+    "current_role": "Process Control Engineer",
+    "experience_years": 3.0,
+    "education_background": "Bachelor of Chemical Engineering",
+    "target_domains": [
+      "Industrial Automation",
+      "Process Variable Control"
+    ],
+    "current_skills": [
+      "Complex Problem Solving",
+      "System Analysis",
+      "Operations Analysis",
+      "Operations Monitoring",
+      "Instructing"
+    ]
+  },
+  {
+    "worker_id": "WORKER-03",
+    "worker_name": "Chong Chee Kiong",
+    "current_role": "Refinery Process Engineer",
+    "experience_years": 4.0,
+    "education_background": "Bachelor of Chemical Engineering",
+    "target_domains": [
+      "Process Safety Management"
+    ],
+    "current_skills": [
+      "Critical Thinking",
+      "Reading Comprehension",
+      "Active Learning",
+      "Mathematics",
+      "Speaking"
+    ]
+  }
+]

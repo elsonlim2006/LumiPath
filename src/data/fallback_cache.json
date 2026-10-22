@@ -1,0 +1,129 @@
+{
+  "is_fallback": true,
+  "trend_signals": {
+    "source_name": "O*NET 28.1, TalentCorp Malaysia COL & Hays Asia 2025",
+    "snapshot_date": "2025-01-15",
+    "macro_impact_rate": 0.64,
+    "market_growth_rate": 0.38,
+    "declining_skills": [
+      "Manual Titration",
+      "Excel Data Entry",
+      "Paper Log Archiving"
+    ],
+    "emerging_skills": [
+      "Spectrometry Automation",
+      "Green Chemistry Compliance",
+      "Lab Data Digital Logging"
+    ]
+  },
+  "matched_roles": [
+    {
+      "rank": 1,
+      "role_code": "19-4099.01",
+      "role_title": "Quality Control Analyst",
+      "match_score": 0.56,
+      "score_breakdown": "Matched 2 of 5 required skills (28%), combined with 3.5 years experience (21%), resulting in an overall match score of 56%",
+      "salary_range": "RM 3,500 - RM 5,000",
+      "malaysia_col_aligned": true,
+      "matched_skills": ["SOP Inspection", "Manual Titration"],
+      "missing_skills": ["Spectrometry Automation", "Green Chemistry Compliance", "Chemical Hazard Evaluation"]
+    },
+    {
+      "rank": 2,
+      "role_code": "17-3026.00",
+      "role_title": "Battery Cell Manufacturing Technician",
+      "match_score": 0.49,
+      "score_breakdown": "Matched 1 of 5 required skills (14%), combined with 3.5 years experience (21%), resulting in an overall match score of 49%",
+      "salary_range": "RM 4,000 - RM 5,500",
+      "malaysia_col_aligned": true,
+      "matched_skills": ["SOP Inspection"],
+      "missing_skills": ["Automated Assembly Monitoring", "Electrochemical Testing", "Cleanroom Protocol"]
+    },
+    {
+      "rank": 3,
+      "role_code": "19-4042.00",
+      "role_title": "Environmental Compliance Inspector",
+      "match_score": 0.42,
+      "score_breakdown": "Matched 1 of 5 required skills (14%), combined with 3.5 years experience (21%), resulting in an overall match score of 42%",
+      "salary_range": "RM 3,600 - RM 4,800",
+      "malaysia_col_aligned": true,
+      "matched_skills": ["SOP Inspection"],
+      "missing_skills": ["Industrial Effluent Testing", "Environmental Regulatory Auditing", "ISO 14001 Standards"]
+    }
+  ],
+  "reskilling_pathway": {
+    "total_estimated_weeks": 12,
+    "phases": [
+      {
+        "phase_number": 1,
+        "phase_name": "Phase 1: Foundation & Digital Logging",
+        "duration_weeks": 3,
+        "skills_addressed": ["Chemical Hazard Evaluation"],
+        "recommended_resource": {
+          "course_name": "Chemical Health Risk Assessment (CHRA)",
+          "provider": "NIOSH Malaysia",
+          "cost_type": "HRD Corp Claimable"
+        },
+        "milestone_credential": "CHRA Competency Certificate"
+      },
+      {
+        "phase_number": 2,
+        "phase_name": "Phase 2: Applied Instrumental Automation",
+        "duration_weeks": 5,
+        "skills_addressed": ["Spectrometry Automation"],
+        "recommended_resource": {
+          "course_name": "Modern Analytical Chemistry: Automated Spectroscopy",
+          "provider": "edX / HarvardX",
+          "cost_type": "Free Audit"
+        },
+        "milestone_credential": "Verified Course Certificate"
+      },
+      {
+        "phase_number": 3,
+        "phase_name": "Phase 3: Green Regulatory & Micro-credential",
+        "duration_weeks": 4,
+        "skills_addressed": ["Green Chemistry Compliance"],
+        "recommended_resource": {
+          "course_name": "Introduction to Environmental Green Chemistry",
+          "provider": "Coursera / University of Michigan",
+          "cost_type": "Free Audit"
+        },
+        "milestone_credential": "Specialization Certificate"
+      }
+    ]
+  },
+  "sdg_alignment": [
+    {
+      "sdg_code": "SDG 4",
+      "sdg_name": "Quality Education",
+      "targets": ["Target 4.3", "Target 4.4"]
+    },
+    {
+      "sdg_code": "SDG 8",
+      "sdg_name": "Decent Work and Economic Growth",
+      "targets": ["Target 8.2", "Target 8.5"]
+    },
+    {
+      "sdg_code": "SDG 13",
+      "sdg_name": "Climate Action",
+      "targets": ["Target 13.3"]
+    }
+  ],
+  "uncertainty_scenarios": {
+    "moderate": {
+      "scenario_name": "Moderate Transition",
+      "timeline_horizon": "3-5 Years",
+      "macro_impact_rate": 0.42,
+      "urgency_level": "Medium",
+      "recommended_duration_weeks": 14
+    },
+    "accelerated": {
+      "scenario_name": "Accelerated Disruption",
+      "timeline_horizon": "1-2 Years",
+      "macro_impact_rate": 0.74,
+      "urgency_level": "High",
+      "recommended_duration_weeks": 8
+    }
+  },
+  "disclaimer": "All match scores, skill gaps, and salary benchmarks are indicative estimates based on O*NET 28.1, TalentCorp COL, and Hays Asia 2025. They serve as guidance only and do not guarantee future employment, wages, or training subsidies."
+}

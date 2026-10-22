@@ -1,0 +1,45 @@
+{
+  "source_name": "O*NET 28.1, TalentCorp Malaysia COL & Hays Asia 2025",
+  "snapshot_date": "2025-01-15",
+  "moderate_scenario": {
+    "timeline_horizon": "3-5 Years",
+    "macro_impact_rate": 0.42,
+    "urgency_level": "Medium",
+    "recommended_duration_weeks": 14
+  },
+  "accelerated_scenario": {
+    "timeline_horizon": "1-2 Years",
+    "macro_impact_rate": 0.74,
+    "urgency_level": "High",
+    "recommended_duration_weeks": 8
+  },
+  "market_growth_rate": 0.38,
+  "standard_skill_whitelist": [
+    "Manual Titration",
+    "Excel Data Entry",
+    "SOP Inspection",
+    "Paper Log Archiving",
+    "Routine Visual Quality Check",
+    "Manual Sample Preparation",
+    "Spectrometry Automation",
+    "Green Chemistry Compliance",
+    "Chemical Hazard Evaluation",
+    "Lab Data Digital Logging",
+    "Automated Assembly Monitoring",
+    "Electrochemical Testing",
+    "Cleanroom Protocol",
+    "Quality Defect Root-Cause Analysis",
+    "Electrolyzer Operation Monitoring",
+    "Gas Chromatography Inspection",
+    "High-Pressure Safety Compliance",
+    "Automated SCADA Logging",
+    "Emergency Shutdown Protocol",
+    "Industrial Effluent Testing",
+    "Air Quality Sensor Calibration",
+    "Environmental Regulatory Auditing",
+    "ISO 14001 Standards",
+    "Computer Vision Defect Inspection",
+    "Statistical Process Control (SPC)"
+  ],
+  "disclaimer": "All match scores, skill gaps, and salary benchmarks are indicative estimates based on O*NET 28.1, TalentCorp COL, and Hays Asia 2025. They serve as guidance only and do not guarantee future employment, wages, or training subsidies."
+}
