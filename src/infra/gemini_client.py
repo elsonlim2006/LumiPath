@@ -8,7 +8,7 @@ class GeminiClient:
     def __init__(self, timeout: float = 8.0):
         self.timeout = timeout
         self.api_key = self._load_api_key()
-        self.model = "gemini-3.8-flash"
+        self.model = "gemini-flash-lite-latest"
         self.base_url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
 
     def _load_api_key(self) -> str:

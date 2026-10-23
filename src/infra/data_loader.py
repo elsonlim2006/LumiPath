@@ -41,3 +41,33 @@ class DataLoader:
             with open(path, "r", encoding="utf-8") as f:
                 self._fallback = json.load(f)
         return self._fallback
+
+    def get_sample_profiles(self) -> list[dict]:
+        path = os.path.join(self._base_dir, "sample_profiles.json")
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return []
+
+    @classmethod
+    def get_all_skill_candidates(cls) -> list[str]:
+        instance = cls()
+        if not hasattr(instance, "_skill_candidates") or instance._skill_candidates is None:
+            skills_set = set()
+            for r in instance.get_role_catalog():
+                for s in r.get("required_skills", []):
+                    if s and s.strip():
+                        skills_set.add(s.strip())
+            for p in instance.get_sample_profiles():
+                for s in p.get("current_skills", []):
+                    if s and s.strip():
+                        skills_set.add(s.strip())
+            trend = instance.get_trend_snapshot()
+            for s in trend.get("emerging_skills", []):
+                if s and s.strip():
+                    skills_set.add(s.strip())
+            for s in trend.get("declining_skills", []):
+                if s and s.strip():
+                    skills_set.add(s.strip())
+            instance._skill_candidates = sorted(list(skills_set))
+        return instance._skill_candidates

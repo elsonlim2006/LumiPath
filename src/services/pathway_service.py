@@ -5,19 +5,24 @@ class PathwayPlannerService:
     def __init__(self):
         self.data_loader = DataLoader()
 
-    def plan_pathway(self, match: RoleMatch) -> ReskillingPathway:
+    def plan_pathway(self, match: RoleMatch, pace: str = "moderate") -> ReskillingPathway:
         catalog = self.data_loader.get_course_catalog()
-        missing = match.missing_skills if match.missing_skills else ["Spectrometry Automation", "Green Chemistry Compliance"]
+        missing = match.missing_skills if match and match.missing_skills else ["Spectrometry Automation", "Green Chemistry Compliance"]
         
         # Partition missing skills across 3 phases
         phase1_skills = [missing[0]] if len(missing) >= 1 else ["Lab Data Digital Logging"]
         phase2_skills = [missing[1]] if len(missing) >= 2 else (phase1_skills if len(missing) == 1 else ["Spectrometry Automation"])
         phase3_skills = missing[2:] if len(missing) >= 3 else ["Green Chemistry Compliance"]
 
+        if pace == "accelerated":
+            weeks = [2, 3, 3]  # 8 weeks sprint
+        else:
+            weeks = [4, 6, 4]  # 14 weeks steady
+
         phases = [
-            self._build_phase(1, "Phase 1: Foundation & Digital Baseline", 3, phase1_skills, catalog),
-            self._build_phase(2, "Phase 2: Applied Instrumental & Process Skills", 5, phase2_skills, catalog),
-            self._build_phase(3, "Phase 3: Industry Certification & Micro-credential", 4, phase3_skills, catalog)
+            self._build_phase(1, "Phase 1: Foundation & Digital Baseline", weeks[0], phase1_skills, catalog),
+            self._build_phase(2, "Phase 2: Applied Instrumental & Process Skills", weeks[1], phase2_skills, catalog),
+            self._build_phase(3, "Phase 3: Industry Certification & Micro-credential", weeks[2], phase3_skills, catalog)
         ]
 
         total_weeks = sum(p.duration_weeks for p in phases)

@@ -5,7 +5,7 @@ class RoleMatcherService:
     def __init__(self):
         self.data_loader = DataLoader()
 
-    def match_top_roles(self, worker: WorkerProfile) -> list[RoleMatch]:
+    def match_top_roles(self, worker: WorkerProfile, scenario: str = "moderate") -> list[RoleMatch]:
         raw_roles = self.data_loader.get_role_catalog()
         worker_skills_set = set(s.strip().lower() for s in worker.current_skills)
         exp_factor = min(1.0, max(0.0, worker.experience_years / 5.0))
@@ -19,7 +19,31 @@ class RoleMatcherService:
             missing = [s for s in req_skills if s.strip().lower() not in worker_skills_set]
             
             skill_overlap_ratio = len(matched) / total_req
-            score = round(0.7 * skill_overlap_ratio + 0.3 * exp_factor, 2)
+            base_score = 0.7 * skill_overlap_ratio + 0.3 * exp_factor
+            
+            # Scenario impact on skill relevance and transition feasibility
+            title_lower = role.get("role_title", "").lower()
+            if scenario == "accelerated":
+                # Fast Disruption: Cross-sector green/battery/hydrogen pivot prioritized
+                if "battery" in title_lower:
+                    adjusted_score = min(0.95, base_score + 0.12)
+                elif "hydrogen" in title_lower:
+                    adjusted_score = min(0.95, base_score + 0.08)
+                elif "quality control analyst" in title_lower:
+                    # Routine chemical lab roles face disruption penalty
+                    adjusted_score = max(0.18, base_score - 0.18)
+                else:
+                    adjusted_score = base_score
+            else:
+                # Moderate Transition: Industry upskilling & environmental compliance favored
+                if "quality control analyst" in title_lower:
+                    adjusted_score = min(0.95, base_score + 0.05)
+                elif "environmental" in title_lower:
+                    adjusted_score = min(0.95, base_score + 0.10)
+                else:
+                    adjusted_score = base_score
+                    
+            score = round(adjusted_score, 2)
             
             skill_pct = int(skill_overlap_ratio * 70)
             exp_pct = int(exp_factor * 30)
