@@ -1,6 +1,7 @@
 """RunPod Serverless Handler for Future-Ready Workforce Pipeline.
 
-Deploys the AI diagnosis and reskilling engine as a RunPod Serverless Endpoint.
+Deploys the LumiPath diagnosis and reskilling engine as a RunPod Serverless Endpoint
+for fast-response workflow orchestration and low-latency inference.
 """
 
 import os
@@ -48,7 +49,16 @@ if __name__ == "__main__":
     except ImportError:
         print("[RunPod Handler] 'runpod' SDK not active in local environment.")
         print("[RunPod Handler] Running local self-test with benchmark worker profile...")
-        test_job = {"input": {}}
-        test_result = handler(test_job)
-        top_role = test_result["data"]["matched_roles"][0]["role_title"]
-        print(f"[RunPod Handler] Self-test success! Top Matched Role: {top_role}")
+        test_job = {
+            "input": {
+                "worker_id": "BENCHMARK-RUNPOD-01",
+                "worker_name": "Dr. Benchmark",
+                "current_role": "Chemical Quality Analyst",
+                "experience_years": 4.0,
+                "education_background": "Bachelor of Chemical Science",
+                "target_domains": ["Green Chemistry"],
+                "current_skills": ["Manual Titration", "SOP Inspection"],
+            }
+        }
+        res = handler(test_job)
+        print(f"[RunPod Handler OK] Status: {res['status']}, Top Role: {res['data']['matched_roles'][0]['role_title']}")

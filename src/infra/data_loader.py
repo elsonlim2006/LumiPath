@@ -63,6 +63,9 @@ class DataLoader:
                     if s and s.strip():
                         skills_set.add(s.strip())
             trend = instance.get_trend_snapshot()
+            for s in trend.get("standard_skill_whitelist", []):
+                if s and s.strip():
+                    skills_set.add(s.strip())
             for s in trend.get("emerging_skills", []):
                 if s and s.strip():
                     skills_set.add(s.strip())

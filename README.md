@@ -9,23 +9,23 @@
 
 | Field                  | Details                                     |
 | ---------------------- | ------------------------------------------- |
-| **Team Name**          | LumiPath Team                               |
+| **Team Name**          | White Cloud                                 |
 | **Team Domain**        | Domain 1: Future-Ready Workforce            |
 | **SDG Track (1–17)**   | SDG 8 (Target 8.2, 8.5), SDG 4 (Target 4.3, 4.4), SDG 13 (Target 13.3) |
-| **Team Leader**        | Team Leader                                 |
-| **University**         | University Name                             |
+| **Team Leader**        | Elson Lim Zhong Qin                         |
+| **University**         | Xiamen University Malaysia                  |
 | **Number of Members**  | 3                                           |
 
 ## Links
 
 | Resource          | Link                                           |
 | ----------------- | ---------------------------------------------- |
-| GitHub Repository | https://github.com/your-username/lumipath      |
-| Replit Project    | https://replit.com/@your-username/lumipath     |
-| Live Demo         | https://your-project.replit.app                |
-| RunPod Endpoint   | https://api.runpod.ai/v2/your-endpoint-id      |
-| Slide Deck        | `submission/SDC2026_TeamName_PitchDeck.pdf`    |
-| Demo Video        | YouTube Link (5–7 min)                         |
+| GitHub Repository | https://github.com/elsonlim2006/LumiPath       |
+| Replit Project    | https://replit.com/@elsonlimzhongqi/LumiPath   |
+| Live Demo         | https://lumipath.replit.app                    |
+| RunPod Endpoint   | Standalone Serverless Handler (`runpod/handler.py`) |
+| Slide Deck        | Included in Demo Video (`submission/LumiPath SDC Hackathon Presentation.pptx`) |
+| Demo Video        | https://youtu.be/VyJyOq9TzOI                   |
 
 ---
 
@@ -54,8 +54,8 @@ LumiPath ingests technician profiles, references authoritative industry and labo
 | ------------- | ------------------------------------------------------------ |
 | Frontend      | HTML5, CSS3, Vanilla JavaScript (Single-Page Responsive UI)  |
 | Backend       | Python 3.10+, Flask, Flask-CORS                              |
-| AI / LLM      | Google Gemini API (`gemini-1.5-flash`), Local Fallback Cache |
-| GPU / Compute | RunPod Serverless GPU Endpoint (`runpod/handler.py`)         |
+| AI / LLM      | Google Gemini API (`gemini-flash-lite-latest`), Local Fallback Cache |
+| GPU / Compute | RunPod Serverless Endpoint (`runpod/handler.py`)             |
 | Hosting / Dev | Replit Deployment Platform                                   |
 
 ---
@@ -63,16 +63,18 @@ LumiPath ingests technician profiles, references authoritative industry and labo
 ## Project Structure
 
 ```
-code/
-├── .replit                  # Replit execution entry configuration (python app.py)
+.
+├── .env.example             # Example environment variables template
+├── .gitignore               # Ignored files (.env, __pycache__)
+├── .replit                  # Replit deployment configuration (python app.py)
 ├── LICENSE                  # Apache License 2.0
-├── README.md                # Project documentation and reproduction guide
-├── requirements.txt         # Production dependencies (Flask, flask-cors, google-genai)
-├── app.py                   # Main web application entry point
+├── README.md                # Project documentation and submission guide
+├── requirements.txt         # Production dependencies
+├── app.py                   # Main interactive web application entry point
 ├── runpod/
-│   └── handler.py           # RunPod serverless handler for GPU workloads
+│   └── handler.py           # RunPod serverless handler for decoupled workloads
 ├── src/
-│   ├── main.py              # CLI diagnostic probe
+│   ├── main.py              # CLI diagnostic verification probe
 │   ├── utils.py             # Utility helpers
 │   ├── data/                # Authoritative reference datasets & sample profiles
 │   │   ├── course_catalog.json
@@ -91,13 +93,24 @@ code/
 │       ├── pathway_service.py
 │       └── profile_service.py
 ├── submission/              # Official competition submission documents
-│   ├── 2. SDC Hackathon_ Technical Tools Declaration Template.pdf
-│   ├── REPLIT PROOF OF USE.pdf
-│   ├── RUNPOD PROOF OF USE.pdf
-│   └── Submission Template SDC Hackathon.pdf
+│   ├── LumiPath SDC Hackathon Presentation.pptx
+│   ├── SDC2026_White Cloud_Preliminary.pdf
+│   ├── SDC2026_White Cloud_Replit_POU.pdf
+│   ├── SDC2026_White Cloud_Runpod_POU.pdf
+│   └── SDC2026_White Cloud_TechDeclaration.pdf
 └── tests/
-    ├── test_e2e.py          # End-to-end integration and API tests
-    └── test_utils.py        # Utility tests
+    ├── test_e2e.py          # End-to-end integration and API test suite
+    └── test_utils.py        # Utility unit tests
+```
+
+### Architecture
+
+```
+User ──► Replit (Web UI / Flask API) ──► Google Gemini API (gemini-flash-lite-latest)
+                │                                    │
+                ├────────────────────────────────────┘ (Heuristic Fallback Cache)
+                ▼
+        RunPod Endpoint (Serverless Handler: runpod/handler.py)
 ```
 
 ---
@@ -106,19 +119,19 @@ code/
 
 ### Option 1 — Run on Replit (Recommended)
 
-1. Import this repository into Replit via **Create Repl → Import from GitHub**.
-2. Open the **Secrets** tab (🔒) and configure your environment variables:
-   - `GEMINI_API_KEY` (Required for dynamic AI analysis; fallback heuristic runs automatically if absent)
-   - `RUNPOD_API_KEY` (Optional / Conditional for GPU endpoint)
-   - `RUNPOD_ENDPOINT_ID` (Optional / Conditional for GPU endpoint)
-3. Click **Run**. Replit will execute `python app.py` and expose the web interface on the designated port.
+1. Open the [Replit Project](https://replit.com/@elsonlimzhongqi/LumiPath), or import this repository via **Create Repl → Import from GitHub**.
+2. Open the **Secrets** tab (🔒) and add the environment variables listed in `.env.example`:
+   - `GEMINI_API_KEY` (Required for dynamic AI analysis; deterministic fallback runs automatically if absent)
+   - `RUNPOD_API_KEY` (Optional / For RunPod serverless testing)
+   - `RUNPOD_ENDPOINT_ID` (Optional / For RunPod serverless testing)
+3. Click **Run**. Replit will execute `python app.py` and serve the web application.
 
 ### Option 2 — Run Locally
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/lumipath.git
-cd lumipath
+git clone https://github.com/elsonlim2006/LumiPath.git
+cd LumiPath
 
 # 2. Create and activate a virtual environment
 python -m venv venv
@@ -127,40 +140,83 @@ venv\Scripts\activate       # Linux/macOS: source venv/bin/activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. (Optional) Set environment variables
-set GEMINI_API_KEY=your_key_here    # Linux/macOS: export GEMINI_API_KEY=your_key_here
+# 4. Configure environment variables (optional)
+cp .env.example .env        # then fill in your values
 
-# 5. Start the web application
+# 5. Run the web application
 python app.py
 ```
 Open your browser and navigate to `http://127.0.0.1:8501`.
 
 ### Run Tests
 
-Execute the full suite of end-to-end and domain validation tests:
+Run the complete test suite via standard unittest discovery:
 
 ```bash
-python tests/test_e2e.py
+python -m unittest discover tests
 ```
 
 ---
 
 ## How We Use Replit *(Required)*
 
-- **Development & Prototyping:** Rapid development and iterative testing of Flask web endpoints and responsive UI.
-- **Hosting & Live Demo:** Production deployment via Replit Deployments providing a 24/7 public live prototype URL for judges.
-- **Environment & Secrets:** Secure environment configuration with zero credential exposure.
+- **Development & Prototyping:** Rapid development, environment configuration, and iterative testing of the single-page application and backend endpoints.
+- **Hosting & Live Demo:** Production deployment via Replit Autoscale Deployments providing a resilient 24/7 public live prototype URL: https://lumipath.replit.app
+- **Secrets Management:** Sensitive keys and runtime configurations are securely isolated via Replit Secrets.
 
-📄 Proof of use: [`submission/REPLIT PROOF OF USE.pdf`](submission/REPLIT%20PROOF%20OF%20USE.pdf)
+📄 Proof of use: [`submission/SDC2026_White Cloud_Replit_POU.pdf`](submission/SDC2026_White%20Cloud_Replit_POU.pdf)
 
-## How We Use RunPod *(Conditional for GPU)*
+## How We Use RunPod *(Required)*
 
-- **Workload:** High-performance model inference and batch embeddings handler via `runpod/handler.py`.
-- **Architecture:** Serverless endpoint container supporting rapid GPU spin-up when complex neural embeddings or custom LLM fine-tuning is triggered.
+- **Workload:** Serverless execution handler via `runpod/handler.py` for decoupled background diagnostic processing and inference tasks.
+- **Setup:** Configured as a RunPod Serverless Endpoint container using standard payload specifications.
+- **Integration:** The backend architecture supports routing batch profile evaluations to RunPod endpoints via authenticated API calls.
 
-📄 Proof of use: [`submission/RUNPOD PROOF OF USE.pdf`](submission/RUNPOD%20PROOF%20OF%20USE.pdf)
+Example request:
+
+```bash
+curl -X POST https://api.runpod.ai/v2/$RUNPOD_ENDPOINT_ID/runsync \
+  -H "Authorization: Bearer $RUNPOD_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"input": {"worker_name": "Alex Tan", "current_role": "Chemical Laboratory Technician", "experience_years": 3.5, "current_skills": ["Manual Titration", "Excel Data Entry"]}}'
+```
+
+📄 Proof of use: [`submission/SDC2026_White Cloud_Runpod_POU.pdf`](submission/SDC2026_White%20Cloud_Runpod_POU.pdf)
 
 ---
+
+## Challenges & Learnings
+
+- **Data Grounding vs LLM Hallucination:** Balancing open-ended LLM recommendations with strict local vocational realities was addressed by anchoring AI prompts to a deterministic skill whitelist and regional occupational databases (TalentCorp COL, O*NET).
+- **Graceful Fallback Engineering:** Ensured complete system resilience by designing a robust dual-layer offline fallback cache, guaranteeing zero UI crashes even when external AI API calls experience network latency or quota limits.
+- **Local Industry Alignment:** Mapping reskilling pathways directly to Malaysia HRD Corp claimable frameworks (SBL-KHAS) provided actionable value beyond generic course suggestions.
+
+## Future Improvements
+
+- [ ] Integration with Malaysia National Employment Portal (MYFutureJobs) for real-time job vacancy matching.
+- [ ] Direct credential verification and badge issuing via blockchain or institutional micro-credentials.
+- [ ] Expansion of localized benchmark datasets across additional manufacturing and electronics sub-sectors.
+
+## Team
+
+| Name                 | Role                        | GitHub                                          |
+| -------------------- | --------------------------- | ----------------------------------------------- |
+| Elson Lim Zhong Qin  | Team Lead / Backend & AI    | [@elsonlim2006](https://github.com/elsonlim2006)|
+| Tan Ping Yang        | Frontend & UI/UX            | N/A                                             |
+| Choo Zi Yun          | Research & Domain Alignment | N/A                                             |
+
+---
+
+## Submission Checklist
+
+- [x] Team name, domain (Domain 1: Future-Ready Workforce) and SDG track filled in
+- [x] Slide deck included in repository (`submission/`) and demo video
+- [x] Demo video link added (YouTube)
+- [x] Replit used, with proof of use in `submission/`
+- [x] RunPod used, with proof of use in `submission/`
+- [x] Submission templates completed in `submission/`
+- [x] "How to Run" steps verified
+- [x] No API keys or secrets committed to the repository
 
 ## License
 
